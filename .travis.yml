@@ -1,0 +1,28 @@
+language: node_js
+
+node_js:
+  - '10'
+
+sudo: required
+
+services:
+  - xvfb
+
+env:
+  global:
+    - MOZ_HEADLESS=1
+
+addons:
+  firefox: latest
+
+before_install:
+  - sudo apt-get update
+  - wget https://github.com/mozilla/geckodriver/releases/download/v0.25.0/geckodriver-v0.25.0-linux64.tar.gz
+  - tar -xzf geckodriver-v0.25.0-linux64.tar.gz
+  - sudo cp geckodriver /usr/bin
+
+before_script:
+  - npm install
+
+script:
+  - npm test

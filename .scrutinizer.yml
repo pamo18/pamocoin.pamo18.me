@@ -1,0 +1,9 @@
+build:
+  nodes:
+    functional-tests:
+      environment:
+        selenium: true
+    coverage:
+      tests:
+        override:
+          - command: npm test
