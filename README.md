@@ -1,3 +1,5 @@
+## jsramverk, PamoCoin
+
 ## Badges
 
 <!-- [![Build Status](https://travis-ci.org/pamo18/pamo18.me.svg?branch=master)](https://travis-ci.org/pamo18/pamo18.me)
@@ -7,88 +9,28 @@
 [![Build Status](https://scrutinizer-ci.com/g/pamo18/pamo18.me/badges/build.png?b=master)](https://scrutinizer-ci.com/g/pamo18/pamo18.me/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pamo18/pamo18.me/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/pamo18/pamo18.me/?branch=master) -->
 
-## jsramverk, PamoCoin
+## Frontend
 
-Deployed at [https://pamocoin.pamo18.me/](https:pamocoin.pamo18.me/).
+Denna klient är Frontend till Trading Plattformen Pamocoin Pro deployed at [https://pamocoin.pamo18.me](https:pamocoin.pamo18.me/).
 
-Denna Me-sida är skapad av Paul Moreland och är en del av kursen jsramverk, Belinke Tekniska Högskola.
+Klienten är byggt med React, vilket ibland klassificeras som ett JavaScript ramverk eller ett bibliotek.  Klienten jobbar mot servern som användargränssnitt samt för att visuellt presentera trading plattformens funktionalitet.  React erbjuder ett smart och effektivt sätt att bygga Single Page Applications, SPA, där sidan uppdateras utan att den behöver laddas om.  En React applikation är uppbyggt av många återanvändbara komponenter, likt moduler, där komponentens State bestämmer när saker ska uppdateras.  React erbjuder då ett effektivt och snabbt sätt att bygga applikationer med.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Trading plattformen är strukturerat runt tre huvudkomponenter, en Header, Main innehåll samt en Footer.  En router används för att visa applikationens olika innehåll beroende på den aktuella URL, som hanteras genom navigationsmenyn som finns i Headern, eller Footern beroende på skärmstorleken.  Klienten kopplar upp sig mot serverns API genom Fetch, en annan API som används för att skicka requests och ta emot svar till och från en server.  För att kunna handla samt ha åtkomst till användarens specifika detaljer måste en token verifieras mot servern med godkänt resultat annars visas enbart en begränsad vy.  För att få en token måste användaren registrera sig samt logga in.  Token verifieringen erbjuder ett säkert och effektivt sätt att kontrollera vilka sidor och funktionalitet som ska vara tillgängliga.
 
-## Install Node.js with npm
+På Trade sidan när man är inloggad kan användaren köpa två olika digitala valutor mot kronor.  Man kan också handla mellan de två digitala valutorna.  Användaren kan också sälja dessa köpta valutor mot kronor.  När inloggad kan användare se sin plånbok som innehåller köpta digitala valutor samt kronor.  Det finns även möjligheten att kunna fylla på plånboken med kronor för att handla med.  En orderhistorik visar detaljer av användarens trading aktivitet.
 
-Follow the instructions on the following page:
+Denna React klient är responsivt designat för att kunna användas på enheter av olika storlekar.  På Trading sidan används det två kolumner, Order form samt Price Charts, som visas bredvid varandra på större skärmar och staplade på mindre skärmar.  Navigationsmenyn visas överst i Header delen på större skärmar och på mindre skärmar visas den i Footer delen, fast positionerat längst ned för enkel tillgänglighet på mobila enheter.  Tabeller på orderhistorik sidan är också responsiva för bättre läsning på mindre skärmar.  Det finns två bryt punkter, en på 930px där mycket är anpassat till mindre skärmar och en till på 500px där specifika fontstorlekar minskar för riktig mindre skärmar.
 
-[Install Node.js with npm here!](https://nodejs.org/en/download/)
+## Testning
 
-### `npm install`
+Testningar till min Frontend består av 8st Selenium tester, där jag förklarar 5st use-cases nedan:
 
-In the project directory type `npm install` from a terminal window.  This installs all module dependencies from the package.json file which are required for the project to run correctly and reside in the node_modules folder.
+1. Användare ska från förstasidan klicka på About i navigationsmeny för att bli presenterat med detaljer om Trading Plattformen.
 
+2.	Användare ska från förstasidan klicka på Register i navigationsmeny för att bli presenterat med ett registreringsformulär.
 
-## Available Scripts
+3.	Användare ska från första sidan klicka på Login i navigationsmenyn för att komma till inloggningssidan.  Sedan skriver användaren in sin använder namn ihop med lösenord och klickar på knappen Login.  Efter inloggningen är användaren omdirigerade till Trade sidan.
 
-In the project directory, you can run:
+4.	Användare ska från första sidan klicka på Login i navigationsmenyn för att komma till inloggningssidan.  Sedan skriver användaren in sin använder namn ihop med lösenord och klickar på knappen Login.  Efter inloggningen är användaren omdirigerade till Trade sidan och klickar sedan på My Wallet för att bli presenterade med sin aktuella tradingplånbok.
 
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+5.	Användare ska från första sidan klicka på Login i navigationsmenyn för att komma till inloggningssidan.  Sedan skriver användaren in sin använder namn ihop med lösenord och klickar på knappen Login.  Efter inloggningen är användaren omdirigerade till Trade sidan och klickar sedan på My Profile för att bli presenterade med sina personliga detaljer.
