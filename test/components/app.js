@@ -25,7 +25,7 @@ test.describe("PamoCoin Pro", function() {
         browser = new webdriver.Builder().
             withCapabilities(webdriver.Capabilities.firefox()).build();
 
-        browser.get("http://localhost:3000");
+        browser.get("https://pamocoin.pamo18.me");
         done();
     });
 
@@ -304,7 +304,7 @@ test.describe("PamoCoin Pro", function() {
         done();
     });
 
-    test.it("Test go to trade", function(done) {
+    test.it("Test login and redirect to trade", function(done) {
         browser.sleep(2000);
         // Use nav link to go to home page
         browser.findElement(By.linkText("Login")).then(function(element) {
@@ -326,10 +326,6 @@ test.describe("PamoCoin Pro", function() {
         });
 
         browser.sleep(3000);
-
-        browser.findElement(By.linkText("Trade")).then(function(element) {
-            element.click();
-        });
 
         // Check correct heading
         browser.findElement(By.css("h1")).then(function(element) {

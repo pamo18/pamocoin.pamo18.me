@@ -136,7 +136,7 @@ class Wallet extends Component {
                                         onChange={this.changeAmount}
                                     />
                                 </label>
-                                <input className="button form-button center" type="submit" name="deposit" value="Deposit" />
+                                <input className="button center" type="submit" name="deposit" value="Deposit" />
                             </form>
                         </div>
                     </div>

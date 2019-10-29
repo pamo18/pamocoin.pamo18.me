@@ -3,18 +3,13 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/img/logo.png';
-import base from '../../config/api.js';
 import auth from '../../models/auth.js';
-
-let api = base.api();
 
 class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
             title: "PamoCoin | Pro",
-            name: "",
-            course: "",
             wallet: "",
             orders: "",
             profile: "",
@@ -34,10 +29,6 @@ class Header extends Component {
                     that.registerNav();
                 }
             });
-
-        fetch(api)
-            .then(res => res.json())
-            .then(res => this.showContent(res));
     }
 
     adminNav() {
@@ -52,15 +43,6 @@ class Header extends Component {
     registerNav() {
         this.setState({
             register: <NavLink to="/register" className="admin" activeClassName="selected">Register</NavLink >
-        });
-    }
-
-    showContent(res) {
-        let data = res.data.me[0];
-
-        this.setState({
-            name: data.name,
-            course: data.course
         });
     }
 

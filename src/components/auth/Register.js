@@ -143,19 +143,19 @@ class Register extends Component {
                     <div className="column">
                         <div className="column-1">
                             <div className="form-wrapper">
-                                <p className="center">To be able to view your profile you must first register.</p>
+                                <p className="center">To be able to trade you must first register.</p>
                                 <form action="/login" className="form-register" onSubmit={this.registerSubmit}>
                                     <label className="form-label">Username
                                         <input className="form-input" type="text" name="name" required placeholder="Your username" />
                                     </label>
 
                                     <label className="form-label">Birthday
-                                        <input onClick={() => this.setState({ showing: !showing })} id="birthday" className="form-input" type="date" name="date" required placeholder="Click to choose!" />
-                                        { showing
-                                            ? <DatePicker />
-                                            : null
-                                        }
+                                        <input onClick={() => this.setState({ showing: !showing })} id="birthday" className="form-input" type="text" readOnly="readonly" name="date" required placeholder="Click to choose!" />
                                     </label>
+                                    { showing
+                                        ? <DatePicker />
+                                        : null
+                                    }
 
                                     <label className="form-label">Country
                                         <select onChange={this.addToCommon} className="form-input" type="text" name="country" required placeholder="Your current location">
@@ -196,7 +196,7 @@ class Register extends Component {
                                     </label><br />
 
 
-                                    <input className="button form-button center" type="submit" name="register" value="Register" />
+                                    <input className="button center" type="submit" name="register" value="Register" />
                                 </form>
                             </div>
                         </div>

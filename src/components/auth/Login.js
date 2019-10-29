@@ -87,7 +87,7 @@ class Login extends Component {
                         <div className="column">
                             <div className="column-1">
                                 <div className="form-wrapper">
-                                    <p className="center">To be able to access the chat and edit reports you must first login.</p>
+                                    <p className="center">To access your personal page and be able to trade you must first login.</p>
                                     <form action="/profile" className="form-register" onSubmit={this.registerSubmit}>
                                         <label className="form-label">Username
                                             <input className="form-input" type="text" name="name" required placeholder="Your username" />
@@ -103,7 +103,7 @@ class Login extends Component {
                                             />
                                             <p><input type="checkbox" className="show-password" onClick={this.toggleShowPassword} /> {this.state.button ? "Show" : "Hide"} password</p>
                                         </label>
-                                        <input className="button form-button center" type="submit" name="login" value="Login" />
+                                        <input className="button center" type="submit" name="login" value="Login" />
                                     </form>
                                     {this.state.invalid}
                                 </div>

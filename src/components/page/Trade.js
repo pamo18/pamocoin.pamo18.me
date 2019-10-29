@@ -123,6 +123,9 @@ class Trade extends Component {
                     graphOuter.appendChild(graphElement);
                     graphContainer.appendChild(graphTitle);
                     graphContainer.appendChild(graphOuter);
+                    let d = new Date();
+
+                    d.setHours(d.getHours() + 1);
 
                     let graph = new Rickshaw.Graph({
                         element: graphElement,
@@ -135,7 +138,7 @@ class Trade extends Component {
                         }], undefined, {
                             timeInterval: 5000,
                             maxDataPoints: 1000,
-                            timeBase: new Date().getTime() / 1000
+                            timeBase: d.getTime() / 1000
                         })
                     });
 
@@ -149,7 +152,9 @@ class Trade extends Component {
 
                     window.addEventListener('resize', resize);
 
-                    new Rickshaw.Graph.Axis.Time( { graph: graph } );
+                    new Rickshaw.Graph.Axis.Time({
+                        graph: graph
+                    });
 
                     new Rickshaw.Graph.Axis.Y({
                         graph: graph,
@@ -489,13 +494,13 @@ class Trade extends Component {
 
                                         { this.state.buySell === "buy" ?
                                             <input
-                                                className="button form-button center buy"
+                                                className="button center buy"
                                                 type="submit"
                                                 name="buy"
                                                 value="Place order" />
                                             :
                                             <input
-                                                className="button form-button center sell"
+                                                className="button center sell"
                                                 type="submit"
                                                 name="sell"
                                                 value="Place order" />
