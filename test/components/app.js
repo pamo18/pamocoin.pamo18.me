@@ -279,42 +279,4 @@ test.describe("PamoCoin Pro", function() {
 
         done();
     });
-
-    test.it("Test login and redirect to trade", function(done) {
-        browser.sleep(2000);
-        // Use nav link to go to home page
-        browser.findElement(By.linkText("Login")).then(function(element) {
-            element.click();
-        });
-
-        browser.findElement(By.name("name")).then(function(element) {
-            element.sendKeys("doe");
-        });
-
-        browser.findElement(By.name("password")).then(function(element) {
-            element.sendKeys("doe");
-        });
-
-        browser.sleep(1000);
-
-        browser.findElement(By.name("login")).then(function(element) {
-            element.click();
-        });
-
-        browser.sleep(3000);
-
-        // Check correct heading
-        browser.findElement(By.css("h1")).then(function(element) {
-            element.getText().then(function(text) {
-                assert.equal(text, "Trade");
-            });
-        });
-
-        // Check correct URL ending
-        browser.getCurrentUrl().then(function(url) {
-            assert.ok(url.endsWith(""));
-        });
-
-        done();
-    });
 });
