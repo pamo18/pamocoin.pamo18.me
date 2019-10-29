@@ -136,21 +136,6 @@ test.describe("PamoCoin Pro", function() {
             assert.ok(url.endsWith(""));
         });
 
-        browser.findElement(By.linkText("Logoff")).then(function(element) {
-            element.click();
-        });
-
-        browser.findElement(By.name("logoff")).then(function(element) {
-            element.click();
-        });
-
-        // Check correct heading
-        browser.findElement(By.css("h1")).then(function(element) {
-            element.getText().then(function(text) {
-                assert.equal(text, "Login");
-            });
-        });
-
         done();
     });
 
