@@ -193,14 +193,6 @@ test.describe("PamoCoin Pro", function() {
             assert.ok(url.endsWith("/wallet"));
         });
 
-        browser.findElement(By.linkText("Logoff")).then(function(element) {
-            element.click();
-        });
-
-        browser.findElement(By.name("logoff")).then(function(element) {
-            element.click();
-        });
-
         done();
     });
 
@@ -241,14 +233,6 @@ test.describe("PamoCoin Pro", function() {
         // Check correct URL ending
         browser.getCurrentUrl().then(function(url) {
             assert.ok(url.endsWith("/orders"));
-        });
-
-        browser.findElement(By.linkText("Logoff")).then(function(element) {
-            element.click();
-        });
-
-        browser.findElement(By.name("logoff")).then(function(element) {
-            element.click();
         });
 
         done();
@@ -293,14 +277,6 @@ test.describe("PamoCoin Pro", function() {
             assert.ok(url.endsWith("/profile"));
         });
 
-        browser.findElement(By.linkText("Logoff")).then(function(element) {
-            element.click();
-        });
-
-        browser.findElement(By.name("logoff")).then(function(element) {
-            element.click();
-        });
-
         done();
     });
 
@@ -337,14 +313,6 @@ test.describe("PamoCoin Pro", function() {
         // Check correct URL ending
         browser.getCurrentUrl().then(function(url) {
             assert.ok(url.endsWith(""));
-        });
-
-        browser.findElement(By.linkText("Logoff")).then(function(element) {
-            element.click();
-        });
-
-        browser.findElement(By.name("logoff")).then(function(element) {
-            element.click();
         });
 
         done();
