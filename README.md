@@ -7,7 +7,7 @@
 
 
 [![Build Status](https://scrutinizer-ci.com/g/pamo18/pamocoin.pamo18.me/badges/build.png?b=master)](https://scrutinizer-ci.com/g/pamo18/pamocoin.pamo18.me/build-status/master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pamo18/pamo18.me/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/pamo18/pamo18.me/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pamo18/pamocoin.pamo18.me/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/pamo18/pamocoin.pamo18.me/?branch=master)
 
 ## Frontend
 
