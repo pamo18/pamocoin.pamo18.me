@@ -44,11 +44,11 @@ class Orders extends Component {
                     res.data.forEach(function(row) {
                         orders.push(
                             <tr>
-                                <td data-title="Coin">{ row.coin }</td>
+                                <td data-title="Asset">{ row.coin }</td>
                                 <td data-title="Amount">{ row.amount }</td>
-                                <td data-title="Currency">{ row.currency }</td>
                                 <td data-title="Price">{ row.price }</td>
-                                <td data-title="Total">{ row.total }</td>
+                                <td data-title="Currency">{ row.currency }</td>
+                                <td data-title="Total cost">{ row.total }</td>
                                 <td data-title="Purchased">{ row.purchased }</td>
                             </tr>
                         );
@@ -72,11 +72,11 @@ class Orders extends Component {
                             <table className="results">
                                 <thead>
                                     <tr>
-                                        <th>Coin</th>
+                                        <th>Asset</th>
                                         <th>Amount</th>
-                                        <th>Currency</th>
                                         <th>Price</th>
-                                        <th>Total</th>
+                                        <th>Currency</th>
+                                        <th>Total cost</th>
                                         <th>Date</th>
                                     </tr>
                                 </thead>

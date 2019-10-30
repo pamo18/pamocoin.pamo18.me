@@ -399,7 +399,7 @@ table.results td {
     justify-content: center;
 }
 
-.graph-picker.restore {
+.graph-picker.simulate {
     justify-content: flex-end;
 }
 

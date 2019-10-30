@@ -24,7 +24,7 @@ class Trade extends Component {
         this.updateAmount = this.updateAmount.bind(this);
         this.updateTotal = this.updateTotal.bind(this);
         this.message = this.message.bind(this);
-        this.restoreGraph = this.restoreGraph.bind(this);
+        this.simulateGraph = this.simulateGraph.bind(this);
         this.trade = this.trade.bind(this);
         this.buy = this.buy.bind(this);
         this.sell = this.sell.bind(this);
@@ -326,14 +326,14 @@ class Trade extends Component {
         });
     }
 
-    restoreGraph() {
+    simulateGraph() {
         const graphContainer = document.getElementById("graphs");
 
         graphContainer.innerHTML = "";
         this.setState({
             first: true,
             graphs: ""
-        }, () => socket.emit('restore'));
+        }, () => socket.emit('simulate'));
     }
 
     trade(e) {
@@ -520,12 +520,12 @@ class Trade extends Component {
                                 { this.state.graphs }
                             </div>
                             <div className="graphs" id="graphs"></div>
-                            <div className="graph-picker restore">
+                            <div className="graph-picker simulate">
                                 <button
                                     className="toggle-button"
-                                    name="restore-button"
-                                    value="restore"
-                                    onClick={this.restoreGraph}>Restore Charts
+                                    name="simulate-button"
+                                    value="simulate"
+                                    onClick={this.simulateGraph}>Simulate 500
                                 </button>
                             </div>
                         </div>
