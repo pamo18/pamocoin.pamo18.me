@@ -23,7 +23,7 @@ Denna React klient är responsivt designat för att kunna användas på enheter 
 
 ## Testning
 
-Testningar till min Frontend består av 8st Selenium tester, där jag förklarar 5st use-cases nedan:
+Testningar till min Frontend består av 7st Selenium tester, där jag förklarar 5st use-cases nedan:
 
 1. Användare ska från förstasidan klicka på About i navigationsmeny för att bli presenterat med detaljer om Trading Plattformen.
 
