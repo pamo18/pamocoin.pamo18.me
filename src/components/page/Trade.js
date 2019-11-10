@@ -143,12 +143,16 @@ class Trade extends Component {
                     });
 
                     resize = function() {
+                        let containerWidth = graphContainer.clientWidth || 930;
+
                         graph.configure({
-                            width: graphContainer.clientWidth - 100,
+                            width: containerWidth - 100,
                             height: "300",
                         });
                         graph.render();
                     };
+
+                    resize();
 
                     window.addEventListener('resize', resize);
 
@@ -182,8 +186,6 @@ class Trade extends Component {
                     first: false
                 });
             }
-
-            resize();
 
             stocks.map((stock) => {
                 let slug = utils.slugify(stock.name),

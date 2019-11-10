@@ -270,6 +270,10 @@ table.results td {
         display: block;
     }
 
+    table.results tbody {
+        display: block;
+    }
+
     table.results tr:not(:last-child) {
         border-bottom: 2px dashed black;
     }

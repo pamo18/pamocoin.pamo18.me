@@ -43,7 +43,7 @@ class Orders extends Component {
 
                     res.data.forEach(function(row) {
                         orders.push(
-                            <tr>
+                            <tr key={row.purchased}>
                                 <td data-title="Asset">{ row.coin }</td>
                                 <td data-title="Amount">{ row.amount }</td>
                                 <td data-title="Price">{ row.price }</td>
@@ -80,7 +80,9 @@ class Orders extends Component {
                                         <th>Date</th>
                                     </tr>
                                 </thead>
-                                { this.state.orders }
+                                <tbody>
+                                    { this.state.orders }
+                                </tbody>
                             </table>
                         </div>
                     </div>
