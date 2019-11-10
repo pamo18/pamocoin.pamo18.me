@@ -19,6 +19,7 @@ class Register extends Component {
             countries: "",
             commonOptions: "",
             commonCountries: "",
+            selectedCountry: "Sweden",
             showing: false,
             password: "",
             hidden: true,
@@ -66,18 +67,19 @@ class Register extends Component {
         });
     }
     addToCommon(e) {
-        let common = this.state.commonCountries,
+        let commonCountries = this.state.commonCountries,
             country = e.target.value;
 
-        if (common.includes(country)) {
-            common.unshift(country);
-            if (common.length > 3) {
-                common.pop();
+        if (!commonCountries.includes(country)) {
+            commonCountries.unshift(country);
+            if (commonCountries.length > 3) {
+                commonCountries.pop();
             }
-            this.setState({
-                commonCountries: common
-            });
         }
+        this.setState({
+            commonCountries: commonCountries,
+            selectedCountry: country
+        });
     }
     commonCountries() {
         let commonOptions = [],
@@ -92,12 +94,13 @@ class Register extends Component {
 
                 result = result.split(",");
                 result.forEach(function (row) {
-                    commonOptions.push(<option key={row} value={row.country}>{row}</option>);
+                    commonOptions.push(<option key={row} value={row}>{row}</option>);
                     commonCountries.push(row);
                 });
                 that.setState({
                     commonOptions: commonOptions,
-                    commonCountries: commonCountries
+                    commonCountries: commonCountries,
+                    selectedCountry: result[0]
                 });
             });
     }
@@ -112,7 +115,7 @@ class Register extends Component {
                 let result = res.data.countries;
 
                 result.forEach(function (row) {
-                    countries.push(<option key={row.country} value={row.county}>{row.country}</option>);
+                    countries.push(<option key={row.country} value={row.country}>{row.country}</option>);
                 });
                 that.setState({
                     countries: countries
@@ -158,7 +161,7 @@ class Register extends Component {
                                     }
 
                                     <label className="form-label">Country
-                                        <select onChange={this.addToCommon} className="form-input" type="text" name="country" required placeholder="Your current location">
+                                        <select onChange={this.addToCommon} className="form-input" type="text" name="country" required value={this.state.selectedCountry} placeholder="Your current location">
                                             <optgroup label="Common countries">
                                                 { this.state.commonOptions }
                                             </optgroup>
